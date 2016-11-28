@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'com.vishal.mysdklibrary'
+    bintrayName = 'my-sdk'
 
     publishedGroupId = 'com.github.testquality'
     libraryName = 'MySdk'
@@ -137,6 +137,14 @@ bintray {
     key = properties.getProperty("bintray.apikey")
 
 //    configurations = ['archives']
+
+    filesSpec {
+        from 'build/libs'
+        into 'standalone_files/level1'
+    }
+
+    publish = false
+
     pkg {
         repo = bintrayRepo
         name = bintrayName
@@ -144,12 +152,13 @@ bintray {
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = allLicenses
-        publish = true
         publicDownloadNumbers = true
         version {
             desc = libraryDescription
+            vcsTag = '0.1'
+            name = '0.1'
             gpg {
-                sign = true //Determines whether to GPG sign the files. The default is false
+                sign = false //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")
                 //Optional. The passphrase for GPG signing'
             }
