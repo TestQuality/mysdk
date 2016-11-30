@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/TestQuality/mysdk'
     gitUrl = 'https://github.com/TestQuality/mysdk.git'
 
-    libraryVersion = '0.2'
+    libraryVersion = '0.3'
 
     developerId = 'qaorig23'
     developerName = 'Vishal Nirmal'
@@ -52,6 +52,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 
 apply plugin: 'com.github.dcendents.android-maven'
@@ -157,7 +158,7 @@ bintray {
         version {
             desc = libraryDescription
             vcsTag = '1.0'
-            name = '0.2'
+            name = '0.3'
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")
