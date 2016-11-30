@@ -9,3 +9,4 @@
 .externalNativeBuild
 /private_key_sender.asc
 /public_key_sender.asc
+/keystore.properties

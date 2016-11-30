@@ -9,4 +9,6 @@ public class VishalMath {
     public int add(int a, int b){
         return a+b;
     }
+
+    String apiKey = BuildConfig.DUMMY_KEY;
 }

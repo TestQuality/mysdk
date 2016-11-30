@@ -24,6 +24,11 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "25.0.0"
@@ -46,6 +51,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'DUMMY_KEY', keystoreProperties['DUMMY_KEY']
     }
 }
 
@@ -167,3 +176,5 @@ bintray {
         }
     }
 }
+
+
