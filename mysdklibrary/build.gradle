@@ -6,14 +6,14 @@ ext {
 
     publishedGroupId = 'com.github.testquality'
     libraryName = 'MySdk'
-    artifact = 'my-sdk'
+    artifact = 'mysdklibrary'
 
     libraryDescription = 'My sdk'
 
     siteUrl = 'https://github.com/TestQuality/mysdk'
     gitUrl = 'https://github.com/TestQuality/mysdk.git'
 
-    libraryVersion = '0.1'
+    libraryVersion = '0.2'
 
     developerId = 'qaorig23'
     developerName = 'Vishal Nirmal'
@@ -136,16 +136,17 @@ bintray {
 
     key = properties.getProperty("bintray.apikey")
 
-//    configurations = ['archives']
+    configurations = ['archives']
 
-    filesSpec {
-        from 'build/libs'
-        into 'standalone_files/level1'
-    }
+//    filesSpec {
+//        from 'build/libs'
+//        into 'standalone_files/level1'
+//    }
 
-    publish = false
+    publish = true
 
     pkg {
+        userOrg = properties.getProperty("bintray.userOrg")
         repo = bintrayRepo
         name = bintrayName
         desc = libraryDescription
@@ -155,16 +156,13 @@ bintray {
         publicDownloadNumbers = true
         version {
             desc = libraryDescription
-            vcsTag = '0.1'
-            name = '0.1'
+            vcsTag = '1.0'
+            name = '0.2'
             gpg {
-                sign = false //Determines whether to GPG sign the files. The default is false
+                sign = true //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")
                 //Optional. The passphrase for GPG signing'
             }
         }
     }
 }
-
-
-
