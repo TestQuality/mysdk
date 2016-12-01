@@ -11,5 +11,5 @@ public class VishalMath {
     }
 
     String apiKey = BuildConfig.DUMMY_KEY;
-    int a;
+
 }
