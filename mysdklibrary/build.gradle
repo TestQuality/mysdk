@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/TestQuality/mysdk'
     gitUrl = 'https://github.com/TestQuality/mysdk.git'
 
-    libraryVersion = '0.4'
+    libraryVersion = '0.5'
 
     developerId = 'qaorig23'
     developerName = 'Vishal Nirmal'
@@ -167,7 +167,7 @@ bintray {
         version {
             desc = libraryDescription
             vcsTag = '1.0'
-            name = '0.4'
+            name = '0.5'
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")
